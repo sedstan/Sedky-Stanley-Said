@@ -6,22 +6,18 @@
             >
                 Projects
             </h2>
-            <div
-                class="flex flex-col items-center md:items-center lg:items-start lg:flex-row flex-1 lg:overflow-x-scroll overflow-y-hidden p-0"
-            >
-                <ProjectCards />
-            </div>
+            <Carousel />
         </div>
     </section>
 </template>
 
 <script>
-import ProjectCards from '@/components/ProjectCards.vue'
+import Carousel from '@/components/Carousel'
 
 export default {
     name: 'Projects',
     components: {
-        ProjectCards,
+        Carousel,
     },
 }
 </script>

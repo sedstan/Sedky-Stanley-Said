@@ -30,14 +30,14 @@
                         />
                     </a>
                 </li>
-                <li class="mr-3 bg-barnRed bg-opacity-50">
+                <li class="mr-3">
                     <a
                         href="https://linkedin.com/in/sstanleysaid"
                         referrerpolicy="no-referrer"
                         rel="external"
                         target="_blank"
                         ><img
-                            class="inline-block"
+                            class="inline-block bg-barnRed bg-opacity-50 rounded-md"
                             src="https://sed-stan-personal-site.s3.amazonaws.com/images/linked-in@2x.png"
                             alt="A LinkedIn icon."
                     /></a>
