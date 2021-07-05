@@ -1,10 +1,12 @@
 <template>
-<div class="carousel">
+<div
+    class="">
   <ProjectCards />
 </div>
 </template>
+
 <script>
-import ProjectCards from '@/components/ProjectCards';
+import ProjectCards from '@/components/ProjectCards'
 
 export default {
   name: 'Carousel',
@@ -13,3 +15,7 @@ export default {
   }
 }
 </script>
+
+<style>
+
+</style>
