@@ -1,0 +1,65 @@
+<template>
+  <!--            <ul class="container flex justify-center items-center mt-12">-->
+  <!--                <li class="mr-3">-->
+  <!--                    <a-->
+  <!--                        href="https://github.com/sedstan"-->
+  <!--                        referrerpolicy="no-referrer"-->
+  <!--                        rel="external"-->
+  <!--                        target="_blank"-->
+  <!--                        ><img-->
+  <!--                            class="inline-block w-1/2 md:w-2/3 lg:w-full"-->
+  <!--                            src="https://sed-stan-personal-site.s3.amazonaws.com/images/github-square-brands-f092@2x.png"-->
+  <!--                            alt="A GitHub icon."-->
+  <!--                        />-->
+  <!--                    </a>-->
+  <!--                </li>-->
+  <!--                <li class="mr-3">-->
+  <!--                    <a-->
+  <!--                        href="https://linkedin.com/in/sstanleysaid"-->
+  <!--                        referrerpolicy="no-referrer"-->
+  <!--                        rel="external"-->
+  <!--                        target="_blank"-->
+  <!--                        ><img-->
+  <!--                            class="inline-block w-1/2 md:w-2/3 lg:w-full"-->
+  <!--                            src="https://sed-stan-personal-site.s3.amazonaws.com/images/linked-in@2x.png"-->
+  <!--                            alt="A LinkedIn icon."-->
+  <!--                    /></a>-->
+  <!--                </li>-->
+  <!--                <li class="mr-3">-->
+  <!--                    <a-->
+  <!--                        href="https://twitter.com/sedstanleysaid"-->
+  <!--                        referrerpolicy="no-referrer"-->
+  <!--                        rel="external"-->
+  <!--                        target="_blank"-->
+  <!--                        ><img-->
+  <!--                            class="inline-block w-1/2 md:w-2/3 lg:w-full"-->
+  <!--                            src="https://sed-stan-personal-site.s3.amazonaws.com/images/twitter-square-brands-f081@2x.png"-->
+  <!--                            alt="A Twitter icon."-->
+  <!--                    /></a>-->
+  <!--                </li>-->
+  <!--                <li class="mr-3">-->
+  <!--                    <a-->
+  <!--                        href="https://www.facebook.com/sedstanley"-->
+  <!--                        referrerpolicy="no-referrer"-->
+  <!--                        rel="external"-->
+  <!--                        target="_blank"-->
+  <!--                        ><img-->
+  <!--                            class="inline-block w-1/2 md:w-2/3 lg:w-full"-->
+  <!--                            src="https://sed-stan-personal-site.s3.amazonaws.com/images/facebook.png"-->
+  <!--                            alt="A facebook icon"-->
+  <!--                    /></a>-->
+  <!--                </li>-->
+  <!--                <li class="">-->
+  <!--                    <a-->
+  <!--                        href="https://instagram.com/sedstan"-->
+  <!--                        referrerpolicy="no-referrer"-->
+  <!--                        rel="external"-->
+  <!--                        target="_blank"-->
+  <!--                        ><img-->
+  <!--                            class="inline-block w-1/2 md:w-2/3 lg:w-full"-->
+  <!--                            src="https://sed-stan-personal-site.s3.amazonaws.com/images/instagram.png"-->
+  <!--                            alt="A instagram icon."-->
+  <!--                    /></a>-->
+  <!--                </li>-->
+  <!--            </ul>-->
+</template>

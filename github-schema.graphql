@@ -596,6 +596,34 @@ interface Sponsorable {
     ): Boolean!
     "True if the viewer is sponsored by this user/organization."
     isSponsoringViewer: Boolean!
+    "List of users and organizations this entity is sponsoring."
+    sponsoring(
+        "Returns the elements in the list that come after the specified cursor."
+        after: String,
+        "Returns the elements in the list that come before the specified cursor."
+        before: String,
+        "Returns the first _n_ elements from the list."
+        first: Int,
+        "Returns the last _n_ elements from the list."
+        last: Int,
+        "Ordering options for the users and organizations returned from the connection."
+        orderBy: SponsorOrder = {field : RELEVANCE, direction : DESC}
+    ): SponsorConnection!
+    "List of sponsors for this user or organization."
+    sponsors(
+        "Returns the elements in the list that come after the specified cursor."
+        after: String,
+        "Returns the elements in the list that come before the specified cursor."
+        before: String,
+        "Returns the first _n_ elements from the list."
+        first: Int,
+        "Returns the last _n_ elements from the list."
+        last: Int,
+        "Ordering options for sponsors returned from the connection."
+        orderBy: SponsorOrder = {field : RELEVANCE, direction : DESC},
+        "If given, will filter for sponsors at the given tier. Will only return sponsors whose tier the viewer is permitted to see."
+        tierId: ID
+    ): SponsorConnection!
     "Events involving this sponsorable, such as new sponsorships."
     sponsorsActivities(
         "Returns the elements in the list that come after the specified cursor."
@@ -3906,7 +3934,9 @@ type EnterpriseIdentityProvider implements Node {
         "Returns the first _n_ elements from the list."
         first: Int,
         "Returns the last _n_ elements from the list."
-        last: Int
+        last: Int,
+        "Filter to external identities with valid org membership only"
+        membersOnly: Boolean
     ): ExternalIdentityConnection!
     id: ID!
     "The x509 certificate used by the identity provider to sign assertions and responses."
@@ -8733,6 +8763,34 @@ type Organization implements Actor & MemberStatusable & Node & PackageOwner & Pr
     resourcePath: URI!
     "The Organization's SAML identity providers"
     samlIdentityProvider: OrganizationIdentityProvider
+    "List of users and organizations this entity is sponsoring."
+    sponsoring(
+        "Returns the elements in the list that come after the specified cursor."
+        after: String,
+        "Returns the elements in the list that come before the specified cursor."
+        before: String,
+        "Returns the first _n_ elements from the list."
+        first: Int,
+        "Returns the last _n_ elements from the list."
+        last: Int,
+        "Ordering options for the users and organizations returned from the connection."
+        orderBy: SponsorOrder = {field : RELEVANCE, direction : DESC}
+    ): SponsorConnection!
+    "List of sponsors for this user or organization."
+    sponsors(
+        "Returns the elements in the list that come after the specified cursor."
+        after: String,
+        "Returns the elements in the list that come before the specified cursor."
+        before: String,
+        "Returns the first _n_ elements from the list."
+        first: Int,
+        "Returns the last _n_ elements from the list."
+        last: Int,
+        "Ordering options for sponsors returned from the connection."
+        orderBy: SponsorOrder = {field : RELEVANCE, direction : DESC},
+        "If given, will filter for sponsors at the given tier. Will only return sponsors whose tier the viewer is permitted to see."
+        tierId: ID
+    ): SponsorConnection!
     "Events involving this sponsorable, such as new sponsorships."
     sponsorsActivities(
         "Returns the elements in the list that come after the specified cursor."
@@ -8893,7 +8951,9 @@ type OrganizationIdentityProvider implements Node {
         "Returns the first _n_ elements from the list."
         first: Int,
         "Returns the last _n_ elements from the list."
-        last: Int
+        last: Int,
+        "Filter to external identities with valid org membership only"
+        membersOnly: Boolean
     ): ExternalIdentityConnection!
     id: ID!
     "The x509 certificate used by the Identity Provider to sign assertions and responses."
@@ -10479,7 +10539,7 @@ type PullRequestReviewThread implements Node {
     "The side of the diff on which this thread was placed."
     diffSide: DiffSide!
     id: ID!
-    "Whether or not the thread has been collapsed (outdated or resolved)"
+    "Whether or not the thread has been collapsed (resolved)"
     isCollapsed: Boolean!
     "Indicates whether this thread was outdated by newer changes."
     isOutdated: Boolean!
@@ -11164,6 +11224,17 @@ type Release implements Node & Reactable & UniformResourceLocatable {
     isLatest: Boolean!
     "Whether or not the release is a prerelease"
     isPrerelease: Boolean!
+    "A list of users mentioned in the release description"
+    mentions(
+        "Returns the elements in the list that come after the specified cursor."
+        after: String,
+        "Returns the elements in the list that come before the specified cursor."
+        before: String,
+        "Returns the first _n_ elements from the list."
+        first: Int,
+        "Returns the last _n_ elements from the list."
+        last: Int
+    ): UserConnection
     "The title of the release."
     name: String
     "Identifies the date and time when the release was created."
@@ -12367,6 +12438,8 @@ type Repository implements Node & PackageOwner & ProjectOwner & RepositoryInfo &
         "Filters users with query on user name and login"
         query: String
     ): UserConnection!
+    "Whether or not Auto-merge can be enabled on pull requests in this repository."
+    autoMergeAllowed: Boolean!
     "A list of branch protection rules for this repository."
     branchProtectionRules(
         "Returns the elements in the list that come after the specified cursor."
@@ -13154,7 +13227,7 @@ type RepositoryVisibilityChangeEnableAuditEntry implements AuditEntry & Enterpri
     userUrl: URI
 }
 
-"A alert for a repository with an affected vulnerability."
+"A Dependabot alert for a repository with a dependency affected by a security vulnerability."
 type RepositoryVulnerabilityAlert implements Node & RepositoryNode {
     "When was the alert created?"
     createdAt: DateTime!
@@ -13651,6 +13724,26 @@ type SmimeSignature implements GitSignature {
     wasSignedByGitHub: Boolean!
 }
 
+"The connection type for Sponsor."
+type SponsorConnection {
+    "A list of edges."
+    edges: [SponsorEdge]
+    "A list of nodes."
+    nodes: [Sponsor]
+    "Information to aid in pagination."
+    pageInfo: PageInfo!
+    "Identifies the total count of items in the connection."
+    totalCount: Int!
+}
+
+"Represents a user or organization who is sponsoring someone in GitHub Sponsors."
+type SponsorEdge {
+    "A cursor for use in pagination."
+    cursor: String!
+    "The item at the end of the edge."
+    node: Sponsor
+}
+
 "The connection type for SponsorableItem."
 type SponsorableItemConnection {
     "A list of edges."
@@ -13733,12 +13826,18 @@ type SponsorsListing implements Node {
     "The full description of the listing rendered to HTML."
     fullDescriptionHTML: HTML!
     id: ID!
+    "Whether this listing is publicly visible."
+    isPublic: Boolean!
     "The listing's full name."
     name: String!
+    "A future date on which this listing is eligible to receive a payout."
+    nextPayoutDate: Date
     "The short description of the listing."
     shortDescription: String!
     "The short name of the listing."
     slug: String!
+    "The entity this listing represents who can be sponsored on GitHub Sponsors."
+    sponsorable: Sponsorable!
     "The published tiers for this GitHub Sponsors listing."
     tiers(
         "Returns the elements in the list that come after the specified cursor."
@@ -15888,6 +15987,34 @@ type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectOwner &
         "The field to order saved replies by."
         orderBy: SavedReplyOrder = {field : UPDATED_AT, direction : DESC}
     ): SavedReplyConnection
+    "List of users and organizations this entity is sponsoring."
+    sponsoring(
+        "Returns the elements in the list that come after the specified cursor."
+        after: String,
+        "Returns the elements in the list that come before the specified cursor."
+        before: String,
+        "Returns the first _n_ elements from the list."
+        first: Int,
+        "Returns the last _n_ elements from the list."
+        last: Int,
+        "Ordering options for the users and organizations returned from the connection."
+        orderBy: SponsorOrder = {field : RELEVANCE, direction : DESC}
+    ): SponsorConnection!
+    "List of sponsors for this user or organization."
+    sponsors(
+        "Returns the elements in the list that come after the specified cursor."
+        after: String,
+        "Returns the elements in the list that come before the specified cursor."
+        before: String,
+        "Returns the first _n_ elements from the list."
+        first: Int,
+        "Returns the last _n_ elements from the list."
+        last: Int,
+        "Ordering options for sponsors returned from the connection."
+        orderBy: SponsorOrder = {field : RELEVANCE, direction : DESC},
+        "If given, will filter for sponsors at the given tier. Will only return sponsors whose tier the viewer is permitted to see."
+        tierId: ID
+    ): SponsorConnection!
     "Events involving this sponsorable, such as new sponsorships."
     sponsorsActivities(
         "Returns the elements in the list that come after the specified cursor."
@@ -17803,6 +17930,14 @@ enum SecurityVulnerabilityOrderField {
     UPDATED_AT
 }
 
+"Properties by which sponsor connections can be ordered."
+enum SponsorOrderField {
+    "Order sponsorable entities by login (username)."
+    LOGIN
+    "Order sponsors by their relevance to the viewer."
+    RELEVANCE
+}
+
 "Properties by which sponsorable connections can be ordered."
 enum SponsorableOrderField {
     "Order sponsorable entities by login (username)."
@@ -19556,6 +19691,14 @@ input SetUserInteractionLimitInput {
     limit: RepositoryInteractionLimit!
     "The ID of the user to set a limit for."
     userId: ID!
+}
+
+"Ordering options for connections to get sponsor entities for GitHub Sponsors."
+input SponsorOrder {
+    "The ordering direction."
+    direction: OrderDirection!
+    "The field to order sponsor entities by."
+    field: SponsorOrderField!
 }
 
 "Ordering options for connections to get sponsorable entities for GitHub Sponsors."
