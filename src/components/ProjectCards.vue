@@ -9,7 +9,26 @@
                 <article
                     class="relative flex flex-col flex-auto justify-start items-start flex-wrap bg-cultured p-5 border border-solid rounded mx-1 text-left h-full group"
                 >
-                    <header class="mb-4 border-b border-barnRed w-full">
+                    <div
+                  class="hidden group-hover:flex flex-col justify-center items-center mx-auto mb-3 h-full w-full bg-barnRed"
+                    >
+                        <h4
+                            class="text-2xl md:text-xl sm:text-lg font-titillium text-oldLace"
+                        >
+                            Primary Language:
+                        </h4>
+                        <p class="font-robot text-bistro">
+                            <span
+                                :style="{
+                                    color: `${repo.node.primaryLanguage.color}`,
+                                }"
+                                >{{ repo.node.primaryLanguage.name }}</span
+                            >
+                        </p>
+                    </div>
+                    <header
+                        class="mb-4 border-b border-barnRed w-full group-hover:hidden"
+                    >
                         <h3
                             class="text-3xl md:2xl sm:xl font-titillium text-barnRed"
                         >
@@ -17,12 +36,12 @@
                         </h3>
                     </header>
                     <main
-                        class="flex flex-col justify-start items-start align-left w-full"
+                        class="flex flex-col justify-start items-start align-left w-full group-hover:hidden"
                     >
                         <p class="font-roboto text-bistro mb-4">
                             {{ repo.node.description }}
                         </p>
-                        <div class="group-hover:hidden mb-3">
+                        <div class="mb-3">
                             <h4
                                 class="text-2xl md:text-xl sm:text-lg font-titillium text-barnRed"
                             >
@@ -38,23 +57,6 @@
                                         color: `${language.node.color}`,
                                     }"
                                     >{{ language.node.name }}</span
-                                >
-                            </p>
-                        </div>
-                        <div
-                            class="hidden group-hover:flex flex-col justify-start items-start mb-3"
-                        >
-                            <h4
-                                class="text-2xl md:text-xl sm:text-lg font-titillium text-barnRed"
-                            >
-                                Primary Language:
-                            </h4>
-                            <p class="font-robot text-bistro">
-                                <span
-                                    :style="{
-                                        color: `${repo.node.primaryLanguage.color}`,
-                                    }"
-                                    >{{ repo.node.primaryLanguage.name }}</span
                                 >
                             </p>
                         </div>
@@ -98,7 +100,7 @@ export default {
             null,
             (data) => data.viewer.repositories.edges
         )
-        console.log(result)
+        // console.log(result);
         return { repos }
     },
     data() {
