@@ -6,18 +6,20 @@
             >
                 Projects
             </h2>
-            <Carousel />
+        </div>
+        <div class="container">
+            <ProjectCards />
         </div>
     </section>
 </template>
 
 <script>
-import Carousel from '@/components/Carousel'
+import ProjectCards from '@/components/ProjectCards'
 
 export default {
     name: 'Projects',
     components: {
-        Carousel,
+        ProjectCards,
     },
 }
 </script>
