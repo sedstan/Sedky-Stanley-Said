@@ -1,5 +1,6 @@
 <template>
     <splide :options="options">
+<!--      TODO: Remove slider on tablet view and smaller-->
         <splide-slide
             v-for="repo in repos"
             :key="repo.node"
@@ -7,13 +8,13 @@
         >
             <app-link isExternal :to="`${repo.node.url}`">
                 <article
-                    class="relative flex flex-col flex-auto justify-start items-start flex-wrap bg-cultured p-5 border border-solid rounded mx-1 text-left h-full group"
+                    class="relative bg-cultured p-5 border border-solid rounded mx-1 text-left h-full group"
                 >
                     <div
                   class="hidden group-hover:flex flex-col justify-center items-center mx-auto mb-3 h-full w-full bg-barnRed"
                     >
                         <h4
-                            class="text-2xl md:text-xl sm:text-lg font-titillium text-oldLace"
+                            class="text-2xl md:text-xl sm:text-lg font-titillium text-cultured"
                         >
                             Primary Language:
                         </h4>
@@ -36,7 +37,7 @@
                         </h3>
                     </header>
                     <main
-                        class="flex flex-col justify-start items-start align-left w-full group-hover:hidden"
+                        class=" align-left w-full group-hover:hidden"
                     >
                         <p class="font-roboto text-bistro mb-4">
                             {{ repo.node.description }}
@@ -110,8 +111,21 @@ export default {
                 rewind: true,
                 perPage: 3,
                 easing: 'ease',
+                gap: '1rem',
+                breakpoints: {
+                  768: {
+                    perPage: 2
+                  },
+                  640: {
+                    perPage: 1
+                  }
+                }
             },
         }
     },
 }
 </script>
+
+<style scoped="css">
+/* TODO: Add skew for effects */
+</style>
