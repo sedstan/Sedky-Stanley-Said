@@ -8,18 +8,18 @@
             </h2>
         </div>
         <div class="container">
-            <ProjectCards />
+            <Carousel />
         </div>
     </section>
 </template>
 
 <script>
-import ProjectCards from '@/components/ProjectCards'
+import Carousel from '@/components/Carousel'
 
 export default {
     name: 'Projects',
     components: {
-        ProjectCards,
+        Carousel,
     },
 }
 </script>

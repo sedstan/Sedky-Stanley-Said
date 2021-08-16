@@ -643,6 +643,19 @@ interface Sponsorable {
     sponsorsListing: SponsorsListing
     "The viewer's sponsorship of this entity."
     sponsorshipForViewerAsSponsor: Sponsorship
+    "List of sponsorship updates sent from this sponsorable to sponsors."
+    sponsorshipNewsletters(
+        "Returns the elements in the list that come after the specified cursor."
+        after: String,
+        "Returns the elements in the list that come before the specified cursor."
+        before: String,
+        "Returns the first _n_ elements from the list."
+        first: Int,
+        "Returns the last _n_ elements from the list."
+        last: Int,
+        "Ordering options for sponsorship updates returned from the connection."
+        orderBy: SponsorshipNewsletterOrder = {field : CREATED_AT, direction : DESC}
+    ): SponsorshipNewsletterConnection!
     "This object's sponsorships as the maintainer."
     sponsorshipsAsMaintainer(
         "Returns the elements in the list that come after the specified cursor."
@@ -1468,7 +1481,6 @@ type CWE implements Node {
     cweId: String!
     "A detailed description of this CWE"
     description: String!
-    "ID of the object."
     id: ID!
     "The name of this CWE"
     name: String!
@@ -4081,7 +4093,7 @@ type EnterpriseOwnerInfo {
     ): OrganizationConnection!
     "The setting value for base repository permissions for organizations in this enterprise."
     defaultRepositoryPermissionSetting: EnterpriseDefaultRepositoryPermissionSettingValue!
-    "A list of enterprise organizations configured with the provided default repository permission."
+    "A list of enterprise organizations configured with the provided base repository permission."
     defaultRepositoryPermissionSettingOrganizations(
         "Returns the elements in the list that come after the specified cursor."
         after: String,
@@ -4145,7 +4157,7 @@ type EnterpriseOwnerInfo {
     ): IpAllowListEntryConnection!
     "The setting value for whether the enterprise has IP allow list configuration for installed GitHub Apps enabled."
     ipAllowListForInstalledAppsEnabledSetting: IpAllowListForInstalledAppsEnabledSettingValue!
-    "Whether or not the default repository permission is currently being updated."
+    "Whether or not the base repository permission is currently being updated."
     isUpdatingDefaultRepositoryPermission: Boolean!
     "Whether the two-factor authentication requirement is currently being enforced."
     isUpdatingTwoFactorRequirement: Boolean!
@@ -8347,9 +8359,9 @@ type OrgUpdateDefaultRepositoryPermissionAuditEntry implements AuditEntry & Node
     organizationResourcePath: URI
     "The HTTP URL for the organization"
     organizationUrl: URI
-    "The new default repository permission level for the organization."
+    "The new base repository permission level for the organization."
     permission: OrgUpdateDefaultRepositoryPermissionAuditEntryPermission
-    "The former default repository permission level for the organization."
+    "The former base repository permission level for the organization."
     permissionWas: OrgUpdateDefaultRepositoryPermissionAuditEntryPermission
     "The user affected by the action"
     user: User
@@ -8810,6 +8822,19 @@ type Organization implements Actor & MemberStatusable & Node & PackageOwner & Pr
     sponsorsListing: SponsorsListing
     "The viewer's sponsorship of this entity."
     sponsorshipForViewerAsSponsor: Sponsorship
+    "List of sponsorship updates sent from this sponsorable to sponsors."
+    sponsorshipNewsletters(
+        "Returns the elements in the list that come after the specified cursor."
+        after: String,
+        "Returns the elements in the list that come before the specified cursor."
+        before: String,
+        "Returns the first _n_ elements from the list."
+        first: Int,
+        "Returns the last _n_ elements from the list."
+        last: Int,
+        "Ordering options for sponsorship updates returned from the connection."
+        orderBy: SponsorshipNewsletterOrder = {field : CREATED_AT, direction : DESC}
+    ): SponsorshipNewsletterConnection!
     "This object's sponsorships as the maintainer."
     sponsorshipsAsMaintainer(
         "Returns the elements in the list that come after the specified cursor."
@@ -13968,6 +13993,43 @@ type SponsorshipEdge {
     node: Sponsorship
 }
 
+"An update sent to sponsors of a user or organization on GitHub Sponsors."
+type SponsorshipNewsletter implements Node {
+    "The contents of the newsletter, the message the sponsorable wanted to give."
+    body: String!
+    "Identifies the date and time when the object was created."
+    createdAt: DateTime!
+    id: ID!
+    "Indicates if the newsletter has been made available to sponsors."
+    isPublished: Boolean!
+    "The user or organization this newsletter is from."
+    sponsorable: Sponsorable!
+    "The subject of the newsletter, what it's about."
+    subject: String!
+    "Identifies the date and time when the object was last updated."
+    updatedAt: DateTime!
+}
+
+"The connection type for SponsorshipNewsletter."
+type SponsorshipNewsletterConnection {
+    "A list of edges."
+    edges: [SponsorshipNewsletterEdge]
+    "A list of nodes."
+    nodes: [SponsorshipNewsletter]
+    "Information to aid in pagination."
+    pageInfo: PageInfo!
+    "Identifies the total count of items in the connection."
+    totalCount: Int!
+}
+
+"An edge in a connection."
+type SponsorshipNewsletterEdge {
+    "A cursor for use in pagination."
+    cursor: String!
+    "The item at the end of the edge."
+    node: SponsorshipNewsletter
+}
+
 "The connection type for User."
 type StargazerConnection {
     "A list of edges."
@@ -16034,6 +16096,19 @@ type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectOwner &
     sponsorsListing: SponsorsListing
     "The viewer's sponsorship of this entity."
     sponsorshipForViewerAsSponsor: Sponsorship
+    "List of sponsorship updates sent from this sponsorable to sponsors."
+    sponsorshipNewsletters(
+        "Returns the elements in the list that come after the specified cursor."
+        after: String,
+        "Returns the elements in the list that come before the specified cursor."
+        before: String,
+        "Returns the first _n_ elements from the list."
+        first: Int,
+        "Returns the last _n_ elements from the list."
+        last: Int,
+        "Ordering options for sponsorship updates returned from the connection."
+        orderBy: SponsorshipNewsletterOrder = {field : CREATED_AT, direction : DESC}
+    ): SponsorshipNewsletterConnection!
     "This object's sponsorships as the maintainer."
     sponsorshipsAsMaintainer(
         "Returns the elements in the list that come after the specified cursor."
@@ -16524,7 +16599,7 @@ enum ContributionLevel {
     THIRD_QUARTILE
 }
 
-"The possible default permissions for repositories."
+"The possible base permissions for repositories."
 enum DefaultRepositoryPermissionField {
     "Can read, write, and administrate repos by default"
     ADMIN
@@ -16632,13 +16707,13 @@ enum EnterpriseAdministratorRole {
     OWNER
 }
 
-"The possible values for the enterprise default repository permission setting."
+"The possible values for the enterprise base repository permission setting."
 enum EnterpriseDefaultRepositoryPermissionSettingValue {
     "Organization members will be able to clone, pull, push, and add new collaborators to all organization repositories."
     ADMIN
     "Organization members will only be able to clone and pull public repositories."
     NONE
-    "Organizations in the enterprise choose default repository permissions for their members."
+    "Organizations in the enterprise choose base repository permissions for their members."
     NO_POLICY
     "Organization members will be able to clone and pull all organization repositories."
     READ
@@ -17888,8 +17963,6 @@ enum SecurityAdvisoryEcosystem {
     NPM
     ".NET packages hosted at the NuGet Gallery"
     NUGET
-    "Applications, runtimes, operating systems and other kinds of software"
-    OTHER
     "Python packages hosted at PyPI.org"
     PIP
     "Ruby gems hosted at RubyGems.org"
@@ -17992,6 +18065,12 @@ enum SponsorsTierOrderField {
     CREATED_AT
     "Order tiers by their monthly price in cents"
     MONTHLY_PRICE_IN_CENTS
+}
+
+"Properties by which sponsorship update connections can be ordered."
+enum SponsorshipNewsletterOrderField {
+    "Order sponsorship newsletters by when they were created."
+    CREATED_AT
 }
 
 "Properties by which sponsorship connections can be ordered."
@@ -19723,6 +19802,14 @@ input SponsorsTierOrder {
     direction: OrderDirection!
     "The field to order tiers by."
     field: SponsorsTierOrderField!
+}
+
+"Ordering options for sponsorship newsletter connections."
+input SponsorshipNewsletterOrder {
+    "The ordering direction."
+    direction: OrderDirection!
+    "The field to order sponsorship newsletters by."
+    field: SponsorshipNewsletterOrderField!
 }
 
 "Ordering options for sponsorship connections."

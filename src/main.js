@@ -3,7 +3,6 @@ import { ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client'
 import { DefaultApolloClient } from '@vue/apollo-composable'
 import { setContext } from '@apollo/client/link/context'
 import App from './App.vue'
-import VueSplide from '@splidejs/vue-splide'
 import router from './router'
 import './assets/styles/index.css'
 
@@ -34,6 +33,5 @@ createApp({
         return h(App)
     },
 })
-    .use(VueSplide)
     .use(router)
     .mount('#app')
