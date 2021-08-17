@@ -45,13 +45,7 @@ export default {
                     page: '/#about-me',
                     notHomeLink: true,
                 },
-                {
-                    id: 3,
-                    emoji: '\ud83c\udfc6',
-                    name: 'Achievements',
-                    page: '/#achievements',
-                    notHomeLink: true,
-                },
+                // TODO: add accomplishment link
                 {
                     id: 4,
                     emoji: '\ud83d\ude4b',

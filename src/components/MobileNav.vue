@@ -80,16 +80,9 @@ export default {
                     navbar: false,
                     moreMenu: true,
                 },
+                // TODO: add accomplishment link
                 {
                     id: 3,
-                    emoji: '\ud83c\udfc6',
-                    name: 'Achievements',
-                    page: '/#achievements',
-                    navbar: false,
-                    moreMenu: true,
-                },
-                {
-                    id: 4,
                     emoji: '\ud83d\ude4b',
                     name: 'Be Social',
                     page: '/#be-social',
