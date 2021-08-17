@@ -7,7 +7,9 @@
                 Projects
             </h2>
         </div>
-        <Carousel />
+        <div class="container">
+            <Carousel />
+        </div>
     </section>
 </template>
 

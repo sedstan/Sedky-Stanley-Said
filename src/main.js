@@ -5,8 +5,6 @@ import { setContext } from '@apollo/client/link/context'
 import App from './App.vue'
 import router from './router'
 import './assets/styles/index.css'
-import VueSplide from '@splidejs/vue-splide';
-import '@splidejs/splide/dist/css/themes/splide-sea-green.min.css';
 
 const httpLink = createHttpLink({
     uri: 'https://api.github.com/graphql',
@@ -36,5 +34,4 @@ createApp({
     },
 })
     .use(router)
-    .use(VueSplide)
     .mount('#app')
