@@ -6,7 +6,7 @@
             </h2>
         </div>
         <div class="container">
-            <div class="sm:py-5 sm:max-w-full md:max-w-2xl lg:max-w-3xl mx-auto text-left font-roboto text-cultured" >
+            <div class="px-5 py-5 sm:max-w-full md:max-w-2xl lg:max-w-3xl mx-auto text-left font-roboto text-cultured" >
                 <p class="mb-3">
                     I am an ambitious Frontend developer with a fondness for any
                     progressive framework looking to move into a frontend role
