@@ -1,19 +1,21 @@
 <template>
     <section id="about-me" class="bg-bistro">
         <div class="container-fluid">
-            <h2 class="font-titillium font-black text-2xl md:text-4xl lg:text-6xl text-oldLace mb-5 py-4 md:py-6 lg:py-8">
+            <h2
+                class="font-titillium font-black text-2xl md:text-4xl lg:text-6xl text-oldLace mb-5 py-4 md:py-6 lg:py-8"
+            >
                 About Me
             </h2>
         </div>
         <div class="container">
-            <div class="px-5 py-5 sm:max-w-full md:max-w-2xl lg:max-w-3xl mx-auto text-left font-roboto text-cultured" >
+            <div
+                class="px-5 py-5 sm:max-w-full md:max-w-2xl lg:max-w-3xl mx-auto text-left font-roboto text-cultured"
+            >
                 <p class="mb-3">
-                    I am an ambitious Frontend developer with a fondness for any
-                    progressive framework looking to move into a frontend role
-                    that uses Vue or React. In my previous tenure, I have gained
-                    an eye for detail through the use of semantic HTML, CSS BEM
-                    methodologies and components when using progressive
-                    frameworks. I’m seeking a role with a team of developers I
+                    I am an ambitious web developer striving for pixel
+                    perfection. In my previous tenure, I gained an eye for
+                    detail using semantic HTML, CSS BEM methodologies and
+                    JavaScript. I’m seeking a role with a team of developers I
                     can learn from whilst providing my knowledge and skillsets
                     to others.
                 </p>
