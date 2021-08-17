@@ -12,11 +12,11 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
-  scrollBehavior(to) {
+  scrollBehavior(to, from, savePosition) {
     if (to.hash) {
       return {
-        selector: to.hash,
-        bahavior: 'smoother',
+        el: to.hash,
+        behavior: 'smooth',
       }
     }
   },
