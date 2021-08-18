@@ -18,6 +18,7 @@
 import SocialLinks from '@/components/SocialLinks'
 export default {
     name: 'BeSocial',
+    title: 'Be Social',
     components: {
         SocialLinks
     }

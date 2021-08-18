@@ -9,6 +9,7 @@ import Hero from '@/components/Hero'
 
 export default {
     name: 'Home',
+    title: 'Home',
     components: {
         Hero,
     },

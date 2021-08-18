@@ -47,7 +47,7 @@ export default {
                 },
                 // TODO: add accomplishment link
                 {
-                    id: 4,
+                    id: 3,
                     emoji: '\ud83d\ude4b',
                     name: 'Be Social',
                     page: '/#be-social',

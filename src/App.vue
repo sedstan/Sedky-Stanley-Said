@@ -33,7 +33,7 @@ export default {
         BeSocial,
         Footer,
         MobileNav,
-    },
+    }
 }
 </script>
 
