@@ -1,7 +1,7 @@
 <template>
     <section id="be-social" class="bg-barnRed">
         <div
-            class="container-fluid font-titillium text-cultured mb-5 py-4 md:py-6 lg:py-8"
+            class="container-fluid font-titillium text-oldLace mb-5 py-4 md:py-6 lg:py-8"
         >
             <h2 class="font-black text-2xl md:text-4xl lg:text-6xl mb-5">
                 Be Social
