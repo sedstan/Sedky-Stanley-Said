@@ -1,5 +1,5 @@
 <template>
-    <div class="home">
+    <div id="home">
         <Hero name="Sedky Stanley Said" title="Front End Developer" />
     </div>
 </template>

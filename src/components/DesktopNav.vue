@@ -27,7 +27,7 @@ export default {
                 {
                     id: 0,
                     name: 'Home',
-                    page: '/',
+                    page: '/#home',
                     emoji: '\ud83c\udfe0',
                     notHomeLink: false,
                 },
