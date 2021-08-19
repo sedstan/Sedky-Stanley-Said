@@ -42,6 +42,7 @@ module.exports = {
     variants: {
         extend: {
             display: ['group-hover'],
+            textColor: ['visited'],
         },
     },
 }
