@@ -1,10 +1,11 @@
 <template>
     <div class="carousel">
         <ul
-            class="flex flex-col justify-evenly flex-wrap md:flex-row lg:flex-row overflow-auto"
+            class="flex flex-wrap lg:flex-nowrap lg:overflow-x-auto"
         >
+        <!-- TODO: Fix height of li -->
             <li
-                class="md:w-1/2 lg:w-1/3 my-1"
+                class="lg:flex-shrink-0 lg:flex-grow-0"
                 v-for="repo in repos"
                 :key="repo.node"
             >
@@ -86,13 +87,10 @@
 
 import { useQuery, useResult } from '@vue/apollo-composable'
 import lastTenRepos from '../graphql/repos.query.graphql'
-import AppLink from './AppLink.vue'
 
 export default {
     name: 'Carousel',
-    components: {
-        AppLink,
-    },
+    components: {},
     setup() {
         const { result } = useQuery(lastTenRepos)
         const repos = useResult(
