@@ -1,17 +1,17 @@
 <template>
     <div class="carousel">
         <ul
-            class="flex flex-wrap lg:flex-nowrap lg:overflow-x-auto"
+            class="flex flex-nowrap overflow-x-auto"
         >
         <!-- TODO: Fix height of li -->
             <li
-                class="lg:flex-shrink-0 lg:flex-grow-0"
+                class="flex-shrink-0 flex-grow-0"
                 v-for="repo in repos"
                 :key="repo.node"
             >
                 <app-link isExternal :to="`${repo.node.url}`">
                     <article
-                        class="relative bg-cultured p-5 border border-solid mx-1 rounded text-left group h-full"
+                        class="relative bg-cultured p-5 border border-solid mx-1 rounded text-left group h-full max-w-320"
                     >
                         <div class="align-left max-w-400">
                             <img
