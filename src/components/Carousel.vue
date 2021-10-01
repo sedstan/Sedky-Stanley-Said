@@ -13,19 +13,19 @@
                     <article
                         class="relative bg-cultured p-5 border border-solid mx-1 rounded text-left group h-full"
                     >
-                        <main class="align-left">
+                        <div class="align-left max-w-400">
                             <img
                                 class="relative mx-auto mb-4"
                                 v-bind:src="`${repo.node.openGraphImageUrl}`"
                                 alt=""
                             />
-                            <header class="mb-4 border-b border-barnRed w-full">
+                            <div class="mb-4 border-b border-barnRed w-full">
                                 <h3
                                     class="text-3xl md:2xl sm:xl font-titillium text-barnRed"
                                 >
                                     {{ repo.node.name }}
                                 </h3>
-                            </header>
+                            </div>
                             <p class="font-roboto text-bistro mb-4">
                                 {{ repo.node.description }}
                             </p>
@@ -68,7 +68,7 @@
                                     >
                                 </p>
                             </div>
-                        </main>
+                        </div>
                     </article>
                 </app-link>
             </li>
