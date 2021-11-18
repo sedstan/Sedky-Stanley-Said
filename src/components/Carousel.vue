@@ -1,15 +1,12 @@
 <template>
     <div class="carousel">
-        <ul
-            class="flex flex-nowrap overflow-x-auto"
-        >
-        <!-- TODO: Fix height of li -->
+        <ul class="flex flex-nowrap overflow-x-auto">
             <li
                 class="flex-shrink-0 flex-grow-0"
                 v-for="repo in repos"
                 :key="repo.node"
             >
-                <app-link isExternal :to="`${repo.node.url}`">
+                <app-link isExternal :to="`${repo.node.url}`" class="block w-full h-full">
                     <article
                         class="relative bg-cultured p-5 border border-solid mx-1 rounded text-left group h-full max-w-320"
                     >
@@ -77,20 +74,15 @@
 </template>
 
 <script>
-/**
- * @property  {Object} viewer
- * @property {Object }repositories
- * @typedef {Object} repo.node
- * @property {Object} primaryLanguage
- * @property {String} openGraphImageUrl
- */
-
 import { useQuery, useResult } from '@vue/apollo-composable'
 import lastTenRepos from '../graphql/repos.query.graphql'
+import AppLink from './AppLink.vue'
 
 export default {
     name: 'Carousel',
-    components: {},
+    components: {
+        AppLink
+    },
     setup() {
         const { result } = useQuery(lastTenRepos)
         const repos = useResult(
