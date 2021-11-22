@@ -6,8 +6,8 @@
         <div class="lg:w-2/12 lg:justify-start">
             <a href="/"
                 ><img
-                    class="header__logo p-3 ml-16"
-                    src="https://sed-stan-personal-site.s3.amazonaws.com/images/s3-logo-large@2x.png"
+                    class="header__logo p-3 ml-16 rounded-full"
+                    src="https://sed-stan-personal-site.s3.eu-west-1.amazonaws.com/images/sx3-logo-2x.png"
                     alt="A logo with an S and a 3."
             /></a>
         </div>
