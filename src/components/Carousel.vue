@@ -1,12 +1,18 @@
 <template>
+    <button class="mr-3 mb-3 bg-white p-5">prev</button>
+    <button class="mr-3 mb-3 bg-white p-5">next</button>
     <div class="carousel">
-        <ul class="flex flex-nowrap overflow-x-auto">
+        <ul class="flex flex-nowrap overflow-x-auto inner">
             <li
                 class="flex-shrink-0 flex-grow-0"
                 v-for="repo in repos"
                 :key="repo.node"
             >
-                <app-link isExternal :to="`${repo.node.url}`" class="block w-full h-full">
+                <app-link
+                    isExternal
+                    :to="`${repo.node.url}`"
+                    class="block w-full h-full"
+                >
                     <article
                         class="relative bg-cultured p-5 border border-solid mx-1 rounded text-left group h-full max-w-320"
                     >
@@ -81,7 +87,7 @@ import AppLink from './AppLink.vue'
 export default {
     name: 'Carousel',
     components: {
-        AppLink
+        AppLink,
     },
     setup() {
         const { result } = useQuery(lastTenRepos)
@@ -96,4 +102,8 @@ export default {
 }
 </script>
 
-<style scoped="css"></style>
+<style scoped="css">
+.inner {
+    transition: transform 0.2s;
+}
+</style>
