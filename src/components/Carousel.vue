@@ -1,5 +1,5 @@
 <template>
-    <button class="mr-3 mb-3 bg-white p-5">prev</button>
+    <button class="mr-3 mb-3 bg-white p-5" >prev</button>
     <button class="mr-3 mb-3 bg-white p-5">next</button>
     <div class="carousel">
         <ul class="flex flex-nowrap overflow-x-auto inner">
@@ -97,7 +97,7 @@ export default {
             (data) => data.viewer.repositories.edges
         )
 
-        return { repos }
+        return { repos, innerStyles: {}, step: '' }
     },
 }
 </script>
