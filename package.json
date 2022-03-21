@@ -8,9 +8,11 @@
     },
     "dependencies": {
         "@apollo/client": "^3.3.16",
+        "@splidejs/vue-splide": "^0.5.18",
         "@vue/apollo-composable": "^4.0.0-alpha.12",
         "core-js": "^3.6.5",
         "graphql": "^15.5.0",
+        "graphql-tag": "^2.12.6",
         "normalize.css": "^8.0.1",
         "react": "^17.0.2",
         "vue": "^3.0.0",
