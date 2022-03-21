@@ -1,8 +1,8 @@
 <template>
     <Splide
         :options="{
+            rewind: true,
             perPage: 4,
-            perMove: 1,
             breakpoints: {
                 640: {
                     perPage: 1,
@@ -20,9 +20,9 @@
         }"
     >
         <SplideSlide class="" v-for="repo in repos" :key="repo.node">
-            <app-link isExternal :to="`${repo.node.url}`" class="">
+            <app-link isExternal :to="`${repo.node.url}`">
                 <article
-                    class="relative bg-cultured p-5 border border-solid mx-1 rounded text-left group h-full max-w-320"
+                    class="relative bg-cultured p-5 border border-solid mx-1 rounded text-left group h-full"
                 >
                     <div class="align-left max-w-400">
                         <img
