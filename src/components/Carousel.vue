@@ -59,10 +59,10 @@
                             </p>
                         </div>
                         <div
-                            class="hidden group-hover:flex flex-col justify-center items-center bg-barnRed mb-4"
+                            class="hidden group-hover:flex flex-col justify-center items-center bg-white mb-4"
                         >
                             <h4
-                                class="text-2xl md:text-xl sm:text-lg font-titillium text-cultured"
+                                class="text-2xl md:text-xl sm:text-lg font-titillium text-barnRed"
                             >
                                 Primary Language:
                             </h4>
