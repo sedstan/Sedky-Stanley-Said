@@ -8,7 +8,7 @@
             </h2>
             <h4 class="font-bold text-lg md:text-xl lg:text-2xl">My last 10 repos</h4>
         </div>
-        <div class="container mb-8">
+        <div class="container mb-5">
             <Carousel />
         </div>
     </section>

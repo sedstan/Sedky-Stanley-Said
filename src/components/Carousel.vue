@@ -22,7 +22,7 @@
         <SplideSlide v-for="repo in repos" :key="repo.node">
             <app-link isExternal :to="`${repo.node.url}`">
                 <article
-                    class="relative bg-cultured border border-solid mx-auto p-1.5 rounded text-left group w-75 h-75"
+                    class="relative bg-cultured border border-solid mx-auto p-1.5 rounded text-left group w-75 h-75 shadow"
                 >
                     <div class="align-left">
                         <div class="mb-4 border-b border-barnRed w-full">
