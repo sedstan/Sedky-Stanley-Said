@@ -19,16 +19,12 @@
             },
         }"
     >
-        <SplideSlide class="" v-for="repo in repos" :key="repo.node">
+        <SplideSlide v-for="repo in repos" :key="repo.node">
             <app-link isExternal :to="`${repo.node.url}`">
                 <article
-                    class="relative bg-cultured p-5 border border-solid mx-1 rounded text-left group h-full"
+                    class="relative bg-cultured p-5 border border-solid mx-1 rounded text-left group h-full max-w-400"
                 >
-                    <div class="align-left max-w-400">
-                        <img
-                            class="relative mx-auto mb-4"
-                            v-bind:src="`${repo.node.openGraphImageUrl}`"
-                        />
+                    <div class="align-left">
                         <div class="mb-4 border-b border-barnRed w-full">
                             <h3
                                 class="text-3xl md:2xl sm:xl font-titillium text-barnRed"
@@ -48,7 +44,7 @@
                             <p
                                 v-for="language in repo.node.languages.edges"
                                 :key="language.node"
-                                class="font-roboto flex flex-col justify-start items-start text-bistro"
+                                class="font-roboto text-bistro"
                             >
                                 <span
                                     :style="{
