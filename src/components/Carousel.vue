@@ -22,7 +22,7 @@
         <SplideSlide v-for="repo in repos" :key="repo.node">
             <app-link isExternal :to="`${repo.node.url}`">
                 <article
-                    class="relative bg-cultured p-5 border border-solid mx-1 rounded text-left group h-full max-w-400"
+                    class="relative bg-cultured border border-solid mx-auto p-1.5 rounded text-left group w-75 h-75"
                 >
                     <div class="align-left">
                         <div class="mb-4 border-b border-barnRed w-full">
@@ -44,7 +44,7 @@
                             <p
                                 v-for="language in repo.node.languages.edges"
                                 :key="language.node"
-                                class="font-roboto text-bistro"
+                                class="font-roboto flex flex-col justify-start items-start text-bistro"
                             >
                                 <span
                                     :style="{
@@ -55,7 +55,7 @@
                             </p>
                         </div>
                         <div
-                            class="hidden group-hover:flex flex-col justify-center items-center bg-white mb-4"
+                            class="hidden group-hover:flex flex-col justify-start items-start"
                         >
                             <h4
                                 class="text-2xl md:text-xl sm:text-lg font-titillium text-barnRed"
