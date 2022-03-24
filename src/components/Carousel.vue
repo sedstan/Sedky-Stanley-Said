@@ -2,32 +2,37 @@
     <Splide
         :options="{
             rewind: true,
-            perPage: 4,
+            focus: 'center',
+            trimSpace: true,
+            mediaQuery: 'min',
             breakpoints: {
                 640: {
-                    perPage: 1,
+                    perPage: 1
                 },
                 768: {
-                    perPage: 2,
+                    perPage: 2
                 },
                 1024: {
-                    perPage: 3,
+                    perPage: 3
                 },
                 1280: {
-                    perPage: 4,
+                    perPage: 4
                 },
-            },
+              1536: {
+                  perPage: 5
+              }
+            }
         }"
     >
         <SplideSlide v-for="repo in repos" :key="repo.node">
             <app-link isExternal :to="`${repo.node.url}`">
                 <article
-                    class="relative bg-cultured border border-solid mx-auto p-1.5 rounded text-left group w-75 h-75 shadow"
+                    class="relative bg-cultured border border-solid mx-4 p-5 rounded text-left group min-h-75 shadow"
                 >
                     <div class="align-left">
                         <div class="mb-4 border-b border-barnRed w-full">
                             <h3
-                                class="text-3xl md:2xl sm:xl font-titillium text-barnRed"
+                                class="text-3xl md:2xl sm:xl font-titillium text-barnRed pb-2"
                             >
                                 {{ repo.node.name }}
                             </h3>
