@@ -27,7 +27,9 @@
                     class="relative bg-cultured border border-solid mx-3 p-5 rounded text-justify group min-h-75 min-w-75 h-full hover:bg-bistro"
                 >
                     <div class="align-left">
-                        <div class="mb-4 border-b border-barnRed w-full">
+                        <div
+                            class="mb-4 border-b border-barnRed w-full group-hover:border-cultured"
+                        >
                             <h3
                                 class="text-3xl md:2xl sm:xl font-titillium text-barnRed pb-2 group-hover:text-cultured"
                             >
