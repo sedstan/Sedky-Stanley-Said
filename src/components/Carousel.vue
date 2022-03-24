@@ -19,6 +19,8 @@
                     perPage: 4,
                 },
             },
+            arrows: true,
+            pagination: false
         }"
     >
         <SplideSlide v-for="repo in repos" :key="repo.node">
@@ -110,6 +112,8 @@ export default {
 </script>
 
 <style scoped="css">
-.language__name-comma:last-of-type {
+.splide__arrows {
+    position: absolute;
+    bottom: 0;
 }
 </style>
