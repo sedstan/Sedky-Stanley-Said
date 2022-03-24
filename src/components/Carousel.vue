@@ -20,7 +20,7 @@
                 },
             },
             arrows: true,
-            pagination: false
+            pagination: false,
         }"
     >
         <SplideSlide v-for="repo in repos" :key="repo.node">
@@ -111,9 +111,4 @@ export default {
 }
 </script>
 
-<style scoped="css">
-.splide__arrows {
-    position: absolute;
-    bottom: 0;
-}
-</style>
+<style scoped="css"></style>
