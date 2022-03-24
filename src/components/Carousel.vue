@@ -7,27 +7,27 @@
             mediaQuery: 'min',
             breakpoints: {
                 640: {
-                    perPage: 1
+                    perPage: 1,
                 },
                 768: {
-                    perPage: 2
+                    perPage: 2,
                 },
                 1024: {
-                    perPage: 3
+                    perPage: 3,
                 },
                 1280: {
-                    perPage: 4
+                    perPage: 4,
                 },
-              1536: {
-                  perPage: 5
-              }
-            }
+                1536: {
+                    perPage: 5,
+                },
+            },
         }"
     >
         <SplideSlide v-for="repo in repos" :key="repo.node">
             <app-link isExternal :to="`${repo.node.url}`">
                 <article
-                    class="relative bg-cultured border border-solid mx-4 p-5 rounded text-left group min-h-75 shadow"
+                    class="relative bg-cultured border border-solid mx-4 p-5 rounded text-justify group min-h-75 min-w-75 h-full shadow"
                 >
                     <div class="align-left">
                         <div class="mb-4 border-b border-barnRed w-full">
@@ -49,7 +49,7 @@
                             <p
                                 v-for="language in repo.node.languages.edges"
                                 :key="language.node"
-                                class="font-roboto flex flex-col justify-start items-start text-bistro"
+                                class="font-roboto text-bistro"
                             >
                                 <span
                                     :style="{
