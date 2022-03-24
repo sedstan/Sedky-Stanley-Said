@@ -18,16 +18,13 @@
                 1280: {
                     perPage: 4,
                 },
-                1536: {
-                    perPage: 5,
-                },
             },
         }"
     >
         <SplideSlide v-for="repo in repos" :key="repo.node">
             <app-link isExternal :to="`${repo.node.url}`">
                 <article
-                    class="relative bg-cultured border border-solid mx-4 p-5 rounded text-justify group min-h-75 min-w-75 h-full shadow"
+                    class="relative bg-cultured border border-solid mx-3 p-5 rounded text-justify group min-h-75 min-w-75 h-full"
                 >
                     <div class="align-left">
                         <div class="mb-4 border-b border-barnRed w-full">
@@ -49,7 +46,7 @@
                             <p
                                 v-for="language in repo.node.languages.edges"
                                 :key="language.node"
-                                class="font-roboto text-bistro"
+                                class="font-roboto text-bistro inline pr-2"
                             >
                                 <span
                                     :style="{
@@ -60,7 +57,7 @@
                             </p>
                         </div>
                         <div
-                            class="hidden group-hover:flex flex-col justify-start items-start"
+                            class="hidden group-hover:inline"
                         >
                             <h4
                                 class="text-2xl md:text-xl sm:text-lg font-titillium text-barnRed"
@@ -110,4 +107,8 @@ export default {
 }
 </script>
 
-<style scoped="css"></style>
+<style scoped="css">
+.language__name-comma:last-of-type {
+    
+}
+</style>
