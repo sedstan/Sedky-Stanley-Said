@@ -53,7 +53,7 @@ export default {
                     page: '/#be-social',
                     notHomeLink: true,
                 },
-            ]
+            ],
         }
     },
     computed: {
