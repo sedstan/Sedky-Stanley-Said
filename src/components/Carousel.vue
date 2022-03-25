@@ -1,28 +1,5 @@
 <template>
-    <Splide
-        :options="{
-            rewind: true,
-            focus: 'center',
-            trimSpace: true,
-            mediaQuery: 'min',
-            breakpoints: {
-                640: {
-                    perPage: 1,
-                },
-                768: {
-                    perPage: 2,
-                },
-                1024: {
-                    perPage: 3,
-                },
-                1280: {
-                    perPage: 4,
-                },
-            },
-            arrows: true,
-            pagination: false,
-        }"
-    >
+    <Splide :options="options">
         <SplideSlide v-for="repo in repos" :key="repo.node">
             <app-link isExternal :to="`${repo.node.url}`">
                 <article
@@ -106,7 +83,32 @@ export default {
             (data) => data.viewer.repositories.edges
         )
 
-        return { repos }
+        return {
+            repos,
+            options: {
+                rewind: true,
+                focus: 'center',
+                trimSpace: true,
+                mediaQuery: 'min',
+                breakpoints: {
+                    640: {
+                        perPage: 1,
+                    },
+                    768: {
+                        perPage: 2,
+                    },
+                    1024: {
+                        perPage: 3,
+                    },
+                    1280: {
+                        perPage: 4,
+                    },
+                },
+                hasSliderWrapper: true,
+                arrows: 'slider',
+                pagination: false,
+            },
+        }
     },
 }
 </script>
