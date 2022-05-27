@@ -6,7 +6,6 @@
         <Home />
         <Projects />
         <AboutMe />
-        <CvAccomplishments />
         <BeSocial />
     </main>
     <!-- Footer -->
@@ -20,7 +19,6 @@ import Header from '@/components/Header'
 import Home from '@/views/Home.vue'
 import Projects from '@/views/Projects.vue'
 import AboutMe from '@/views/AboutMe.vue'
-import CvAccomplishments from './views/CvAccomplishments.vue'
 import BeSocial from '@/views/BeSocial.vue'
 import Footer from '@/components/Footer.vue'
 import MobileNav from '@/components/MobileNav.vue'
@@ -31,7 +29,6 @@ export default {
         Home,
         Projects,
         AboutMe,
-        CvAccomplishments,
         BeSocial,
         Footer,
         MobileNav,
