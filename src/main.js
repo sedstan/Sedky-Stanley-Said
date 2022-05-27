@@ -4,7 +4,6 @@ import { DefaultApolloClient } from '@vue/apollo-composable'
 import { setContext } from '@apollo/client/link/context'
 import App from './App.vue'
 import router from './router'
-// import title from './utils/title.js'
 import './assets/styles/index.css'
 
 const httpLink = createHttpLink({
