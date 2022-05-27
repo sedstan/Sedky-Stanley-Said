@@ -7,4 +7,11 @@ module.exports = {
             .loader('graphql-tag/loader')
             .end()
     },
+    pages: {
+        index: {
+            entry: '/src/main.js',
+            template: 'public/index.html',
+            title: 'Sedky Stanley Said',
+        },
+    },
 }
