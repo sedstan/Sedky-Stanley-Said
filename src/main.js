@@ -6,28 +6,31 @@ import App from './App.vue'
 import router from './router'
 import './assets/styles/index.css'
 
-const httpLink = createHttpLink({
+// Github API v4 (GraphQL)
+const githubHttpLink = createHttpLink({
     uri: 'https://api.github.com/graphql',
 })
 
-const authLink = setContext((_, { headers }) => {
-    const token = process.env.VUE_APP_SEDKYSTANLEYSAID_GITHUB_TOKEN
+const githubAuthLink = setContext((_, { headers }) => {
+    const githubToken = process.env.VUE_APP_SEDKYSTANLEYSAID_GITHUB_TOKEN
     return {
         headers: {
             ...headers,
-            authorization: token ? `Bearer ${token}` : '',
+            authorization: githubToken ? `Bearer ${githubToken}` : '',
         },
     }
 })
 
-const defaultClient = new ApolloClient({
+const githubDefaultClient = new ApolloClient({
     cache: new InMemoryCache(),
-    link: authLink.concat(httpLink),
+    link: githubAuthLink.concat(githubHttpLink),
 })
+
+// TODO:Bitbucket GraphQL API
 
 createApp({
     setup() {
-        provide(DefaultApolloClient, defaultClient)
+        provide(DefaultApolloClient, githubDefaultClient)
     },
     render() {
         return h(App)

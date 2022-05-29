@@ -9,19 +9,19 @@
             <h4 class="font-bold text-lg md:text-xl lg:text-2xl">My last 10 repos</h4>
         </div>
         <div class="container mb-4 md:mb-6 lg:mb-8">
-            <GithubCarousel />
+            <Carousel />
         </div>
     </section>
 </template>
 
 <script>
-import GithubCarousel from '@/components/GithubCarousel'
+import Carousel from '@/components/Carousel'
 
 export default {
     name: 'Projects',
     title: 'Projects',
     components: {
-    GithubCarousel
+    Carousel
 },
 }
 </script>
