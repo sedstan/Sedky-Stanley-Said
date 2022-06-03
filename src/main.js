@@ -26,8 +26,6 @@ const githubDefaultClient = new ApolloClient({
     link: githubAuthLink.concat(githubHttpLink),
 })
 
-// TODO:Bitbucket GraphQL API
-
 createApp({
     setup() {
         provide(DefaultApolloClient, githubDefaultClient)
