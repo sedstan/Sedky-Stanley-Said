@@ -1,10 +1,25 @@
 <template>
     <div class="flex justify-center align-center flex-col items-center">
         <img
-            src="https://sed-stan-personal-site.s3.amazonaws.com/images/laptop-stickers-1280.webp"
-            alt="A laptop with stickers on it."
+            v-if="isDesktop()"
+            src="https://sed-stan-personal-site.s3.eu-west-1.amazonaws.com/images/laptop-stickers-1920.webp"
+            alt="A laptiop with stickers on it."
             width="1920"
             height="1440"
+        />
+        <img
+            v-else-if="isTablet()"
+            src="https://sed-stan-personal-site.s3.eu-west-1.amazonaws.com/images/laptop-stickers-1280.webp"
+            alt="A laptiop with stickers on it."
+            width="1280"
+            height="960"
+        />
+        <img
+            v-else
+            src="https://sed-stan-personal-site.s3.amazonaws.com/images/laptop-stickers-640.webp"
+            alt="A laptop with stickers on it."
+            width="640"
+            height="480"
         />
         <div class="container absolute font-titillium text-oldLace pb-12">
             <img
@@ -30,6 +45,29 @@ export default {
     props: {
         name: String,
         title: String,
+    },
+    methods: {
+        isMobile() {
+            if (window.matchMedia('(max-width: 767px').matches) {
+                return true
+            } else {
+                return false
+            }
+        },
+        isTablet() {
+            if (window.matchMedia('(min-width: 768px').matches) {
+                return true
+            } else {
+                return false
+            }
+        },
+        isDesktop() {
+            if (window.matchMedia('(min-width: 1024px)').matches) {
+                return true
+            } else {
+                return false
+            }
+        },
     },
 }
 </script>
