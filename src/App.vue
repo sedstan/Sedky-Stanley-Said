@@ -32,7 +32,18 @@ export default {
         BeSocial,
         Footer,
         MobileNav,
-    }
+        Preloader,
+    },
+    data: () => {
+        return {
+            destroyComponent: true,
+        }
+    },
+    methods: {
+        destroyComponent: () => {
+            this.destroyComponent = false
+        },
+    },
 }
 </script>
 
