@@ -15,8 +15,8 @@ import MobileNav from '@/components/MobileNav.vue'
     <main>
         <Home />
         <Projects title="Projects" subtitle="My last 10 repos" />
-        <AboutMe />
-        <BeSocial />
+        <AboutMe title="About Me" />
+        <BeSocial title="Be Social" subtitle="Let's Chat" />
     </main>
     <!-- Footer -->
     <Footer />

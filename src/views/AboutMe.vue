@@ -1,11 +1,13 @@
-<script setup></script>
+<script setup>
+defineProps(['title'])
+</script>
 <template>
     <section id="about-me" class="bg-bistro">
         <div class="container-fluid">
             <h2
                 class="font-titillium font-black text-2xl md:text-4xl lg:text-6xl text-oldLace mb-5 py-4 md:py-6 lg:py-8"
             >
-                About Me
+                {{ title }}
             </h2>
         </div>
         <div class="container">

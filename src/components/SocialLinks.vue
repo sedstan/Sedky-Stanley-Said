@@ -1,3 +1,5 @@
+<script setup></script>
+
 <template>
     <ul class="container flex flex-wrap justify-center items-center">
         <li class="mr-3">
@@ -78,8 +80,3 @@
         </li>
     </ul>
 </template>
-<script>
-export default {
-  name: 'SocialLinks'
-}
-</script>

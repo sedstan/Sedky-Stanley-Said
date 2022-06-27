@@ -1,5 +1,7 @@
 <script setup>
 import SocialLinks from '@/components/SocialLinks'
+
+defineProps(['title', 'subtitle'])
 </script>
 
 <template>
@@ -8,9 +10,11 @@ import SocialLinks from '@/components/SocialLinks'
             class="container-fluid font-titillium text-oldLace mb-5 py-4 md:py-6 lg:py-8"
         >
             <h2 class="font-black text-2xl md:text-4xl lg:text-6xl mb-5">
-                Be Social
+                {{ title }}
             </h2>
-            <h4 class="font-bold text-lg md:text-xl lg:text-2xl">Let's chat</h4>
+            <h4 class="font-bold text-lg md:text-xl lg:text-2xl">
+                {{ subtitle }}
+            </h4>
         </div>
         <div class="container pb-5">
             <SocialLinks />
