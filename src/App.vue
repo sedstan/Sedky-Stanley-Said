@@ -22,8 +22,6 @@ import AboutMe from '@/views/AboutMe.vue'
 import BeSocial from '@/views/BeSocial.vue'
 import Footer from '@/components/Footer.vue'
 import MobileNav from '@/components/MobileNav.vue'
-import Preloader from '@/components/Preloader.vue'
-
 
 export default {
     components: {
@@ -34,18 +32,6 @@ export default {
         BeSocial,
         Footer,
         MobileNav,
-        Preloader,
-    },
-    // FIXME: Need to destroy Preloader to reveal this component
-    data: () => {
-        return {
-            destroyComponent: true,
-        }
-    },
-    methods: {
-        destroyComponent: () => {
-            this.destroyComponent = false
-        },
     },
 }
 </script>
