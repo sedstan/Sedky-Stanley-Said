@@ -1,3 +1,4 @@
+<script setup></script>
 <template>
     <section id="about-me" class="bg-bistro">
         <div class="container-fluid">
@@ -34,12 +35,3 @@
         </div>
     </section>
 </template>
-
-<script>
-export default {
-    name: 'AboutMe',
-    title: 'About Me'
-}
-</script>
-
-<style></style>

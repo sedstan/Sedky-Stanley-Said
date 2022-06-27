@@ -1,3 +1,7 @@
+<script setup>
+import SocialLinks from '@/components/SocialLinks'
+</script>
+
 <template>
     <section id="be-social" class="bg-barnRed">
         <div
@@ -15,20 +19,11 @@
         <div class="container pb-5">
             <a
                 class="text-oldLace visited:text-cultured font-roboto font-bold no-underline"
-                href="mailto:sed@sedkystanleysaid.com?subject=Hello" target="_blank" rel="noopener noreferrer"
+                href="mailto:sed@sedkystanleysaid.com?subject=Hello"
+                target="_blank"
+                rel="noopener noreferrer"
                 >&#128231; sed@sedkystanleysaid.com</a
             >
         </div>
     </section>
 </template>
-
-<script>
-import SocialLinks from '@/components/SocialLinks'
-export default {
-    name: 'BeSocial',
-    title: 'Be Social',
-    components: {
-        SocialLinks,
-    },
-}
-</script>

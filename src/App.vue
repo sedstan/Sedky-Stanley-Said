@@ -1,10 +1,20 @@
+<script setup>
+import Header from '@/components/Header'
+import Home from '@/views/Home.vue'
+import Projects from '@/views/Projects.vue'
+import AboutMe from '@/views/AboutMe.vue'
+import BeSocial from '@/views/BeSocial.vue'
+import Footer from '@/components/Footer.vue'
+import MobileNav from '@/components/MobileNav.vue'
+</script>
+
 <template>
     <!-- Header -->
     <Header />
     <!-- Main -->
     <main>
         <Home />
-        <Projects />
+        <Projects title="Projects" subtitle="My last 10 repos" />
         <AboutMe />
         <BeSocial />
     </main>
@@ -13,28 +23,6 @@
     <!-- Bottom Navigation -->
     <MobileNav />
 </template>
-
-<script>
-import Header from '@/components/Header'
-import Home from '@/views/Home.vue'
-import Projects from '@/views/Projects.vue'
-import AboutMe from '@/views/AboutMe.vue'
-import BeSocial from '@/views/BeSocial.vue'
-import Footer from '@/components/Footer.vue'
-import MobileNav from '@/components/MobileNav.vue'
-
-export default {
-    components: {
-        Header,
-        Home,
-        Projects,
-        AboutMe,
-        BeSocial,
-        Footer,
-        MobileNav,
-    },
-}
-</script>
 
 <style>
 #app {
