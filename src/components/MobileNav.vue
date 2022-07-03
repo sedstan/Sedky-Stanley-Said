@@ -1,63 +1,66 @@
-<script>
-export default {
-    name: 'MobileNav',
-    methods: {
-        open() {
-            const btn = document.querySelector('#menu-btn')
-            const menu = document.querySelector('#full-menu')
+<script setup>
+import { reactive, computed, ref } from 'vue'
 
-            btn.classList.toggle('active')
-            menu.classList.toggle('hidden')
-        },
+// const open = () => {
+//     const btn = document.querySelector('#menu-btn')
+//     const menu = document.querySelector('#full-menu')
+
+//     btn.classList.toggle('active')
+//     menu.classList.toggle('hidden')
+// }
+
+const links = reactive([
+    {
+        id: 0,
+        name: 'Home',
+        page: '/#home',
+        emoji: '\ud83c\udfe0',
+        navbar: true,
+        moreMenu: false,
     },
-    data() {
-        return {
-            links: [
-                {
-                    id: 0,
-                    name: 'Home',
-                    page: '/#home',
-                    emoji: '\ud83c\udfe0',
-                    navbar: true,
-                    moreMenu: false,
-                },
-                {
-                    id: 1,
-                    emoji: '\ud83d\udcbc',
-                    name: 'Projects',
-                    page: '/#projects',
-                    navbar: true,
-                    moreMenu: false,
-                },
-                {
-                    id: 2,
-                    emoji: '\ud83d\udc68',
-                    name: 'About Me',
-                    page: '/#about-me',
-                    navbar: false,
-                    moreMenu: true,
-                },
-                // TODO: add accomplishment link
-                {
-                    id: 3,
-                    emoji: '\ud83d\ude4b',
-                    name: 'Be Social',
-                    page: '/#be-social',
-                    navbar: false,
-                    moreMenu: true,
-                },
-            ],
-        }
+    {
+        id: 1,
+        emoji: '\ud83d\udcbc',
+        name: 'Projects',
+        page: '/#projects',
+        navbar: true,
+        moreMenu: false,
     },
-    computed: {
-        navbarLinks() {
-            return this.links.filter((l) => l.navbar)
-        },
-        moreMenu() {
-            return this.links.filter((l) => l.moreMenu)
-        },
+    {
+        id: 2,
+        emoji: '\ud83d\udc68',
+        name: 'About Me',
+        page: '/#about-me',
+        navbar: false,
+        moreMenu: true,
     },
-}
+    // TODO: add accomplishment link
+    {
+        id: 3,
+        emoji: '\ud83d\ude4b',
+        name: 'Be Social',
+        page: '/#be-social',
+        navbar: false,
+        moreMenu: true,
+    },
+])
+
+const navbarLinks = computed(() => {
+    return links.filter((l) => l.navbar)
+});
+
+const moreMenu = computed(() => {
+    return links.filter((l) => l.moreMenu)
+});
+
+// computed: {
+//     navbarLinks() {
+//         return this.links.filter((l) => l.navbar)
+//     }
+//     moreMenu() {
+//         return this.links.filter((l) => l.moreMenu)
+//     }
+// }
 </script>
 
 <template>
@@ -85,8 +88,8 @@ export default {
             <ul class="flex flex-row justify-between">
                 <li class="w-full" v-for="link in navbarLinks" :key="link.id">
                     <router-link class="flex-auto w-full" :to="`${link.page}`"
-                        ><span class="text-lg">{{ link.emoji }}</span
-                        ><br /><span class="text-xs font-black">{{
+                        ><!--<span class="text-lg">{{ navbarLinkslink.emoji }}</span
+                        >--><br /><span class="text-xs font-black">{{
                             link.name
                         }}</span></router-link
                     >
