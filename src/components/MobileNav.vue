@@ -1,5 +1,5 @@
 <script setup>
-import { reactive, computed, ref } from 'vue';
+import { reactive, computed } from 'vue';
 
 const links = reactive([
     {
@@ -38,28 +38,15 @@ const links = reactive([
 ]);
 
 const open = () => {
-    const btn = document.querySelector('#menu-btn')
-    const menu = document.querySelector('#full-menu')
+    const btn = document.querySelector('#menu-btn');
+    const menu = document.querySelector('#full-menu');
 
-    btn.classList.toggle('active')
-    menu.classList.toggle('hidden')
-}
-const navbarLinks = computed(() => {
-    return links.filter((l) => l.navbar);
-});
+    btn.classList.toggle('active');
+    menu.classList.toggle('hidden');
+};
+const navbarLinks = computed(() => links.filter((l) => l.navbar));
 
-const moreMenu = computed(() => {
-    return links.filter((l) => l.moreMenu);
-});
-
-// computed: {
-//     navbarLinks() {
-//         return this.links.filter((l) => l.navbar)
-//     }
-//     moreMenu() {
-//         return this.links.filter((l) => l.moreMenu)
-//     }
-// }
+const moreMenu = computed(() => links.filter((l) => l.moreMenu));
 </script>
 
 <template>
@@ -87,7 +74,7 @@ const moreMenu = computed(() => {
             <ul class="flex flex-row justify-between">
                 <li class="w-full" v-for="link in navbarLinks" :key="link.id">
                     <router-link class="flex-auto w-full" :to="`${link.page}`"
-                        ><span class="text-lg">{{ navbarLinkslink.emoji }}</span
+                        ><span class="text-lg">{{ link.emoji }}</span
                         ><br /><span class="text-xs font-black">{{
                             link.name
                         }}</span></router-link
