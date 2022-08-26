@@ -1,6 +1,6 @@
 <script setup>
 
-const props = defineProps({ name: String, title: String });
+defineProps({ name: String, title: String });
 const isMobile = () => {
     if (window.matchMedia('(min-width: 320px').matches) {
         return true
