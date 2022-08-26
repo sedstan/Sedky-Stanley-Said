@@ -32,14 +32,14 @@ const links = reactive([
         notHomeLink: true,
     }
 ]);
-
-const notHomeLinks = computed(() => links.filter((l) => l.notHomeLink));
+ 
+ computed(() => links.filter((l) => l.notHomeLink));
 </script>
 
 <template>
     <nav class="lg:w-10/12 lg:flex lg:justify-end lg:items-center">
         <ul class="lg:flex lg:flex-row lg:justify-end">
-            <li class="leading-loose lg:mr-16 flex-shrink" v-for="link in notHomeLinks" :key="link.id">
+            <li class="leading-loose lg:mr-16 flex-shrink" v-for="link in links" :key="link.id">
                 <router-link
                     class="font-titillium font-black hover:text-barnRed flex flex-col justify-center items-center"
                     :to="`${link.page}`">
