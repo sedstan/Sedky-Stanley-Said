@@ -41,7 +41,7 @@ export default {
         class="header bg-transparent text-oldLace hidden lg:flex lg:w-full lg:fixed lg:shadow-sm z-10">
         <div class="lg:w-2/12 lg:justify-start">
             <a href="/"><img class="header__logo p-3 ml-16 rounded-full"
-                    src="https://sed-stan-personal-site.s3.eu-west-1.amazonaws.com/images/s3-logo.svg"
+                    src="https://sed-stan-personal-site.s3.eu-west-1.amazonaws.com/images/sedky-stanley-said-updated-logo+(1).svg"
                     alt="A logo with an S and a 3." width="100" height="100" /></a>
         </div>
         <DesktopNav />
