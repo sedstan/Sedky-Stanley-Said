@@ -1,7 +1,8 @@
 <template>
-    <header class="header bg-white text-oldLace hidden lg:flex lg:w-full lg:fixed lg:shadow-sm z-10 w-full">
+    <header class="header bg-oldLace text-oldLace animate-pulse lg:flex lg:w-full lg:fixed lg:shadow-sm z-11">
         <div class="lg:w-2/12 lg:justify-start">
-            <img  class="header__logo"/>
+            <!-- TODO: add styles for pulse and background colour  -->
+            <img  class="w-full"/>
         </div>
     </header>
 </template>

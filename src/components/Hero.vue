@@ -32,7 +32,7 @@ const isDesktop = () => {
         <img v-else-if="isTablet()"
             src="https://sed-stan-personal-site.s3.eu-west-1.amazonaws.com/images/laptop-stickers-1280.webp"
             alt="A laptiop with stickers on it." width="1280" height="960" />
-        <img v-else src="https://sed-stan-personal-site.s3.amazonaws.com/images/laptop-stickers-640.webp"
+        <img v-else-if="isMobile()" src="https://sed-stan-personal-site.s3.amazonaws.com/images/laptop-stickers-640.webp"
             alt="A laptop with stickers on it." width="640" height="480" />
         <div class="container absolute font-titillium text-oldLace pb-12">
             <img class="border border-oldLace bg-barnRed rounded-full w-24 md:w-36 lg:w-40 h-auto mx-auto mb-9 mt-10 md:mt-0"
