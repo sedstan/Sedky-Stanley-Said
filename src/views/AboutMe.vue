@@ -15,23 +15,14 @@ defineProps(['title'])
                 class="px-5 py-5 sm:max-w-full md:max-w-2xl lg:max-w-3xl mx-auto text-left font-roboto text-cultured"
             >
                 <p class="mb-3">
-                    I am an ambitious web developer striving for pixel
-                    perfection. In my previous tenure, I gained an eye for
-                    detail using semantic HTML, CSS BEM methodologies and
-                    JavaScript. I’m seeking a role with a team of developers I
-                    can learn from whilst providing my knowledge and skillsets
-                    to others.
+                   As a driven web developer, I am devoted to achieving pixel perfection in every project. My journey in the tech realm has been marked by a meticulous eye for detail, honed through experiences with semantic HTML, CSS using BEM methodologies, and JavaScript. I am eager to join a team where I can both impart my knowledge and continue to learn from seasoned developers.
                 </p>
                 <p class="mb-3">
-                    Upon arrival to the UK in 2014, I worked as photographer
-                    assistant and video camera operator whilst working toward a
-                    career in tech.
+                    My adventure in the UK began in 2014. Initially, I immersed myself in the creative fields as a photographer's assistant and video camera operator, all the while nurturing my aspiration for a career in technology.
                 </p>
 
                 <p class="mb-3">
-                    Prior to working in the UK, I worked as a retail employee
-                    and video camera operator for a local government television
-                    station.
+                    Prior to my UK experience, I was engaged as a retail employee and operated a video camera for a local government TV station. Each role has been a stepping stone, enriching my skills and preparing me for the challenges in the ever-evolving world of web development.
                 </p>
             </div>
         </div>
