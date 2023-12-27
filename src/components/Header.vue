@@ -1,9 +1,23 @@
 <script>
 import DesktopNav from '@/components/DesktopNav'
+import { ref } from 'vue'
 
+const loadHeaderData = async () => {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve({
+                pic: "https://sed-stan-personal-site.s3.eu-west-1.amazonaws.com/images/sedky-stanley-said-updated-logo+(1).svg"
+            })
+        }, 2000)
+    })
+}
 export default {
     name: 'Header',
     components: { DesktopNav },
+    async setup() {
+        const headerData = ref(await loadHeaderData())
+        return { headerData }
+    },
     data() {
         return {
             showHeader: true,
@@ -40,8 +54,7 @@ export default {
     <header :class="{ 'header--hidden': !showHeader }"
         class="header bg-transparent text-oldLace hidden lg:flex lg:w-full lg:fixed lg:shadow-sm z-10">
         <div class="lg:w-2/12 lg:justify-start">
-            <a href="/"><img class="header__logo p-3 ml-16 rounded-full"
-                    src="https://sed-stan-personal-site.s3.eu-west-1.amazonaws.com/images/sedky-stanley-said-updated-logo+(1).svg"
+            <a href="/"><img class="header__logo p-3 ml-16 rounded-full" :src="headerData.pic"
                     alt="A logo with an S and a 3." width="100" height="100" /></a>
         </div>
         <DesktopNav />

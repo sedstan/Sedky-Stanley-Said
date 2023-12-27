@@ -1,5 +1,6 @@
 <script setup>
 import Header from '@/components/Header'
+import HeaderSkeleton from '@/components/HeaderSkeleton'
 import Home from '@/views/Home.vue'
 import Projects from '@/views/Projects.vue'
 import AboutMe from '@/views/AboutMe.vue'
@@ -10,7 +11,14 @@ import MobileNav from '@/components/MobileNav.vue'
 
 <template>
     <!-- Header -->
-    <Header />
+    <Suspense>
+        <template #default>
+            <Header />
+        </template>
+        <template #fallback>
+            <HeaderSkeleton />
+        </template>
+    </Suspense>
     <!-- Main -->
     <main>
         <Home />
