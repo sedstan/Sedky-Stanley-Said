@@ -16,13 +16,13 @@
                     alt="A LinkedIn icon." width="50" height="50" loading="lazy" /></a>
         </li>
         <li class="mr-3">
-            <a href="https://www.facebook.com/sedstanley" referrerpolicy="no-referrer" rel="external" target="_blank"><img
+            <a href="https://www.facebook.com/sedkyssaid" referrerpolicy="no-referrer" rel="external" target="_blank"><img
                     class="inline-block w-1/2 md:w-2/3 lg:w-full"
                     src="https://sed-stan-personal-site.s3.amazonaws.com/images/facebook.webp" alt="A facebook icon"
                     width="50" height="50" loading="lazy" /></a>
         </li>
         <li class="">
-            <a href="https://instagram.com/sedstan" referrerpolicy="no-referrer" rel="external" target="_blank"><img
+            <a href="https://instagram.com/sedkyssaid" referrerpolicy="no-referrer" rel="external" target="_blank"><img
                     class="inline-block w-1/2 md:w-2/3 lg:w-full"
                     src="https://sed-stan-personal-site.s3.amazonaws.com/images/instagram.webp" alt="A instagram icon."
                     width="50" height="50" loading="lazy" /></a>
