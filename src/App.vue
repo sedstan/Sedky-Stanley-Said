@@ -22,7 +22,7 @@ import MobileNav from '@/components/MobileNav.vue'
     <!-- Main -->
     <main>
         <Home />
-        <Projects title="Projects" subtitle="My last 10 repos" />
+        <Projects title="Projects" subtitle="Selected Projects" />
         <AboutMe title="About Me" />
         <BeSocial title="Be Social" subtitle="Let's Chat" />
     </main>
