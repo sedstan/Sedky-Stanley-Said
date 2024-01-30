@@ -2,7 +2,7 @@ query lastTenRepos {
     viewer {
         repositories(
             last: 10
-            orderBy: { field: STARGAZERS, direction: DESC }
+            orderBy: { field: CREATED_AT, direction: ASC }
         ) {
             edges {
                 node {
